@@ -96,5 +96,6 @@
     "overrides": {
       "tailwindcss>nanoid": "3.3.7"
     }
-  }
+  },
+  "_buildBust": "2026-06-15-cdn-fix"
 }
