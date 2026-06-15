@@ -40,15 +40,20 @@ export default function Navbar() {
       }`}
     >
       <div className="container">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+        <div className="flex flex-row-reverse items-center justify-between h-16 md:h-20">
+          {/* Logo — right side in RTL */}
+          <a
+            href="#"
+            className="flex flex-row-reverse items-center gap-3 group flex-shrink-0"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
             <img
               src="/manus-storage/logo_dac5a66b.png"
               alt="AI Referent Logo"
-              className="h-10 w-10 object-contain"
+              className="h-10 w-10 object-contain flex-shrink-0"
+              style={{ minWidth: "2.5rem" }}
             />
-            <div className="flex flex-col leading-tight">
+            <div className="flex flex-col leading-tight text-right">
               <span
                 className={`font-bold text-lg leading-none transition-colors ${
                   scrolled ? "text-navy" : "text-white"
@@ -86,8 +91,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button — left side in RTL */}
+          <div className="hidden md:block flex-shrink-0">
             <button
               onClick={() => handleNavClick("#contact")}
               className="btn-primary text-sm py-2 px-5"
