@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Logo + tagline */}
           <div className="flex items-center gap-3">
             <img
-              src="/manus-storage/logo_dac5a66b.png"
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/fUsxeBSLjVwJIIYL.png"
               alt="AI Referent"
               className="h-8 w-8 object-contain"
             />

@@ -178,7 +178,7 @@ export default function UseCasesSection() {
               style={{ background: "oklch(0.24 0.08 265)" }}
             >
               <img
-                src="/manus-storage/logo_dac5a66b.png"
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/fUsxeBSLjVwJIIYL.png"
                 alt="AI Referent"
                 className="w-8 h-8 object-contain"
               />

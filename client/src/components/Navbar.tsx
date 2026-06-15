@@ -48,7 +48,7 @@ export default function Navbar() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <img
-              src="/manus-storage/logo_dac5a66b.png"
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/fUsxeBSLjVwJIIYL.png"
               alt="AI Referent Logo"
               className="h-10 w-10 object-contain flex-shrink-0"
               style={{ minWidth: "2.5rem" }}

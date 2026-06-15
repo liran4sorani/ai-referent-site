@@ -110,7 +110,7 @@ export default function HeroSection() {
                 style={{ boxShadow: "0 32px 80px oklch(0.1 0.08 265 / 0.6)" }}
               >
                 <img
-                  src="/manus-storage/hero_illustration_967ba2f7.png"
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/FHIRgYoQFZtdfnSm.png"
                   alt="AI Referent — ממשק שיחה לסוכני ביטוח"
                   className="w-full h-auto"
                 />
@@ -123,7 +123,7 @@ export default function HeroSection() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-8 h-8 rounded-full bg-navy flex items-center justify-center">
-                    <img src="/manus-storage/logo_dac5a66b.png" alt="AI" className="w-5 h-5 object-contain" />
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/fUsxeBSLjVwJIIYL.png" alt="AI" className="w-5 h-5 object-contain" />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-navy" style={{ fontFamily: "Heebo, sans-serif" }}>AI Referent</div>
