@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: "יכולות", href: "#features" },
   { label: "מקרי שימוש", href: "#usecases" },
   { label: "איך זה עובד", href: "#how-it-works" },
+  { label: "ארכיטקטורה", href: "#architecture" },
   { label: "צור קשר", href: "#contact" },
 ];
 

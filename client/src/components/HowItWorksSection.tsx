@@ -33,23 +33,58 @@ const STEPS = [
 
 const PHASES = [
   {
-    num: "1",
-    title: "MVP — העלאת מסמכים",
-    desc: "הסוכן מעלה את מסמכי הפוליסה. AI Referent עונה על שאלות מתוך המסמכים.",
-    status: "פעיל",
-    statusColor: "bg-green-100 text-green-700",
-  },
-  {
-    num: "2",
-    title: "גישה מונחית לפורטל",
-    desc: "הסוכן מבצע כניסה לפורטל המבטח, ו-AI Referent שולף נתונים בתוך הסשן המאומת.",
+    num: "P0",
+    title: "תשתיות — אותנטיקציה, RBAC ותשתיות מולטי-טננט",
+    desc: "מונורפו, CI/CD, FastAPI, Postgres+pgvector, מידלוור RBAC+ביקורת, רישומי Connector ו-Capability ריקים.",
     status: "בפיתוח",
     statusColor: "bg-amber-100 text-amber-700",
   },
   {
-    num: "3",
-    title: "אינטגרציה ישירה",
-    desc: "חיבור API ישיר למבטחים — הפניקס, כלל, מגדל, הראל ועוד. ללא כניסה ידנית.",
+    num: "P1",
+    title: "אינדקסייה + RAG עם ציטוטים",
+    desc: "העלאת מסמכים → פירסור PDF עברי → חתיכה → הטמעה → pgvector. שליפת נספחים עם שמירת ספאני ציטוט מדויקים.",
+    status: "עתידי",
+    statusColor: "bg-slate-100 text-slate-600",
+  },
+  {
+    num: "P2",
+    title: "צ'אט + יכולת כיסוי ראשונה",
+    desc: "ממשק צ'אט RTL; ייבוא רשימת לקוחות CSV; קונקטורי OTP להפניקס, כלל ומגדל; תשובות מבוססות עם ציטוטים.",
+    status: "עתידי",
+    statusColor: "bg-slate-100 text-slate-600",
+  },
+  {
+    num: "P3",
+    title: "לולאת משוב חובה",
+    desc: "דירוג / תיקון / הערה על כל תשובה; שמירת עקבות מלאה (trace); בניית קורפוס אימון.",
+    status: "עתידי",
+    statusColor: "bg-slate-100 text-slate-600",
+  },
+  {
+    num: "P4",
+    title: "מוכנות תביעה חיה",
+    desc: "סטאטוס תביעה, היסטוריית תביעות ותנאי החזר שלופים חי מפורטל המבטח בסשן OTP. דגרדה עדינה רק כששדה חסר בפורטל.",
+    status: "עתידי",
+    statusColor: "bg-slate-100 text-slate-600",
+  },
+  {
+    num: "P5",
+    title: "Backoffice והרשאות",
+    desc: "פאנל ניהול: טננטים, משתמשים/תפקידים, קונפיגורציית מבטחים, הגדרות מודל, סקירת משוב וייצוא קורפוס.",
+    status: "עתידי",
+    statusColor: "bg-slate-100 text-slate-600",
+  },
+  {
+    num: "P6",
+    title: "דף נחיתה + פיילוט",
+    desc: "דף שיווקי + הרשמה לפיילוט פעיל ב-Backoffice. פיילוט סגור: כ~5 סוכנים, נתונים אמיתיים עם הסכמת לקוחות.",
+    status: "עתידי",
+    statusColor: "bg-slate-100 text-slate-600",
+  },
+  {
+    num: "P7",
+    title: "הקשחה ועמידה רגולטורית",
+    desc: "הצפנה, RLS, מדיניות שמירה, בדיקת חדירה, אישור עמידה לפני נתונים חיים בקנה גדול.",
     status: "עתידי",
     statusColor: "bg-slate-100 text-slate-600",
   },
@@ -160,13 +195,13 @@ export default function HowItWorksSection() {
             className="text-2xl font-black text-navy mb-2"
             style={{ fontFamily: "Heebo, sans-serif" }}
           >
-            מפת הדרכים
+            מפת הדרכים — P0 עד Pilot
           </h3>
           <p
             className="text-slate-500"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            ארכיטקטורה מודולרית — כל שלב בונה על הקודם
+            8 שלבים מסודרים — תשתיות ואבטחה קודמות לפיצ'רים, כל שלב בניתן לדמו
           </p>
         </div>
 
@@ -186,9 +221,9 @@ export default function HowItWorksSection() {
                 <div className="flex items-center justify-between flex-wrap gap-4">
                   <div className="flex items-center gap-4">
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center font-black text-white text-sm flex-shrink-0"
+                      className="w-12 h-12 rounded-full flex items-center justify-center font-black text-white text-xs flex-shrink-0"
                       style={{
-                        background: i === 0 ? "oklch(0.24 0.08 265)" : i === 1 ? "oklch(0.65 0.12 75)" : "oklch(0.7 0.01 265)",
+                        background: i === 0 ? "oklch(0.24 0.08 265)" : i < 3 ? "oklch(0.65 0.12 75)" : "oklch(0.7 0.01 265)",
                         fontFamily: "Heebo, sans-serif",
                       }}
                     >

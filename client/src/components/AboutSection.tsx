@@ -16,9 +16,9 @@ const PAIN_POINTS = [
 
 const SOLUTIONS = [
   "תשובה אחת, ממשק אחד — ללא מעבר בין מערכות",
-  "גישה מיידית לפרטי הפוליסה ללא כניסה מחדש",
-  "AI שקורא את אוגדן הכיסויים ומסכם את הרלוונטי",
-  "תשובה מבוססת מקורות תוך שניות — בזמן שהלקוח בקו",
+  "גישה חיה לפורטל המבטח בסשן מאומת אחד בלבד",
+  "AI שקורא אוגדן כיסויים ונספחים ומסכם את הרלוונטי",
+  "תשובה מבוססת מקורות עם ציטוטים תוך שניות — בזמן שהלקוח בקו",
 ];
 
 function useInView(threshold = 0.15) {
@@ -60,8 +60,8 @@ export default function AboutSection() {
             className="text-lg text-slate-500 max-w-2xl mx-auto"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            כשלקוח שואל "האם הפיזיותרפיה שלי מכוסה?", הסוכן צריך לעבור בין רואטו, Salesforce,
-            פורטל הפניקס ואוגדן הכיסויים — לפני שיכול לענות. AI Referent מחסל את כל זה.
+            כשלקוח שואל "האם הפיזיותרפיה שלי מכוסה?", הסוכן צריך לעבור בין מערכות מרובות, להתחבר
+            לפורטלי הפניקס, כלל ומגדל ולקרוא אוגדנים ארוכים — לפני שיכול לענות. AI Referent מחסל את כל זה.
           </p>
         </div>
 
@@ -153,7 +153,7 @@ export default function AboutSection() {
             className="text-xl md:text-2xl font-semibold text-navy leading-relaxed"
             style={{ fontFamily: "Heebo, sans-serif" }}
           >
-            "הרפרנט הוירטואלי שכל סוכן ביטוח צריך — הקולגה המקצועי שתמיד זמין, תמיד מעודכן."
+            "עוזר AI חכם לסוכני ביטוח — עונה על שאלות כיסוי ותביעות מפורטלי הפניקס, כלל ומגדל — בעברית, בזמן אמת, עם ציטוטים מדויקים לנספח ולסעיף."
           </blockquote>
           <p className="mt-4 text-slate-500 text-sm" style={{ fontFamily: "Assistant, sans-serif" }}>
             — חזון AI Referent

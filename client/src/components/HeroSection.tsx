@@ -53,7 +53,7 @@ export default function HeroSection() {
               }}
             >
               <span className="w-2 h-2 rounded-full bg-gold animate-pulse inline-block" />
-              MVP — פיילוט סגור | הפניקס
+              MVP — פיילוט סגור | הפניקס · כלל · מגדל
             </div>
 
             <h1
@@ -143,7 +143,7 @@ export default function HeroSection() {
                 className="absolute -top-4 -left-4 bg-gold text-navy text-xs font-bold px-3 py-2 rounded-xl shadow-lg"
                 style={{ fontFamily: "Heebo, sans-serif" }}
               >
-                מבוסס על הפניקס
+                הפניקס · כלל · מגדל
               </div>
             </div>
           </div>

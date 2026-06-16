@@ -5,48 +5,62 @@
    ============================================================= */
 
 import { useEffect, useRef, useState } from "react";
-import { MessageSquare, FileSearch, ShieldCheck, ThumbsUp, Lock, Zap } from "lucide-react";
+import { MessageSquare, FileSearch, ShieldCheck, ThumbsUp, Lock, Zap, Building2, Users, Database } from "lucide-react";
 
 const FEATURES = [
   {
     icon: <MessageSquare size={28} />,
     title: "שיחה בעברית — RTL מושלם",
-    desc: "ממשק צ'אט בעברית מלאה, כתיבה מימין לשמאל, מותאם לשימוש בזמן שיחה עם לקוח.",
+    desc: "ממשק צ'אט בעברית מלאה, כתיבה מימין לשמאל, מותאם לשימוש בזמן שיחה עם לקוח. מופעל על כל מכשיר.",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/rutLxNIIDyFxSwgX.png",
     tag: "FR-1",
   },
   {
     icon: <FileSearch size={28} />,
-    title: "תשובות מבוססות פוליסה",
-    desc: "כל תשובה מגובה במקורות — נספח ספציפי, סעיף, שדה בפורטל. הסוכן יכול לאמת לפני שמייעץ.",
+    title: "תשובות מבוססות פוליסה עם ציטוטים",
+    desc: "כל תשובה מגובה במקורות — נספח ספציפי, סעיף ושדה בפורטל. הסוכן יכול לאמת לפני שמייעץ ללקוח.",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/DsFdeVDAQqVhsMaz.png",
     tag: "FR-3, FR-4",
   },
   {
     icon: <ShieldCheck size={28} />,
-    title: "מוכנות לתביעה",
-    desc: "מה מכוסה, אילו מסמכים נדרשים, האם נדרשת הפניה מראש, ומה סטטוס התביעה הנוכחית.",
+    title: "מוכנות לתביעה וסטאטוס חי מהפורטל",
+    desc: "שליפת נתונים חיים מפורטל המבטח בסשן מאומת — כיסויים, מסמכים נדרשים, תביעות קודמות וסטאטוס תשלום בזמן אמת.",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/oQTMXPavkktJHsrh.png",
     tag: "FR-5",
   },
   {
+    icon: <Building2 size={28} />,
+    title: "קונקטורים למבטחים מרובים",
+    desc: "הפניקס, כלל ומגדל ב-MVP. כל מבטח הוא קונקטור עצמאי — הוספת מבטח חדש היא הגדרה, לא שינוי ארכיטקטורה.",
+    img: null,
+    tag: "Connector",
+  },
+  {
+    icon: <Users size={28} />,
+    title: "Backoffice וניהול הרשאות (RBAC)",
+    desc: "פאנל ניהול מלא לסוכנויות: ניהול משתמשים, תפקידים והרשאות, קונפיגורציית מבטחים, סקירת משוב וייצוא קורפוס.",
+    img: null,
+    tag: "שלב 5",
+  },
+  {
     icon: <ThumbsUp size={28} />,
-    title: "לולאת משוב ושיפור",
-    desc: "כל תשובה ניתנת לדירוג, תיקון והערה. המשוב מזין את מנגנון השיפור המתמיד של ה-AI.",
+    title: "לולאת משוב ושיפור מתמיד",
+    desc: "כל תשובה ניתנת לדירוג, תיקון והערה. המשוב מזין את קורפוס האימון ומשפר את ה-AI באופן מתמיד.",
     img: null,
     tag: "FR-7–FR-10",
   },
   {
     icon: <Lock size={28} />,
-    title: "אבטחה ופרטיות",
-    desc: "הצפנה בתעבורה ובאחסון, בקרת גישה, רישום ביקורת. מותאם לרגולציית ביטוח ישראלית.",
+    title: "אבטחה, פרטיות ורישום ביקורת",
+    desc: "הצפנה בתעבורה ובאחסון (KMS), בידוד שורה (RLS), רישום ביקורת על כל גישה ל-PII. מותאם לרגולאציית ביטוח ישראלית.",
     img: null,
     tag: "NFR",
   },
   {
     icon: <Zap size={28} />,
-    title: "מהיר — בזמן שהלקוח בקו",
-    desc: "זמן תגובה של שניות לתשובה מבוססת מסמכים. מתוכנן לשימוש בזמן אמת בשיחה.",
+    title: "Claude AI + pgvector RAG",
+    desc: "מופעל על Claude (Sonnet/Opus) עם שליפת מסמכים ב-pgvector. תגובה בשניות, עברית מלאה, עם ציטוטים מדויקים לנספח ולסעיף.",
     img: null,
     tag: "NFR",
   },
@@ -96,7 +110,7 @@ export default function FeaturesSection() {
         </div>
 
         {/* Feature cards grid */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURES.map((feature, i) => (
             <div
               key={i}
@@ -156,8 +170,8 @@ export default function FeaturesSection() {
             className="text-slate-600 text-sm"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            <strong className="text-navy">MVP — הפניקס בלבד.</strong>{" "}
-            הארכיטקטורה תומכת בהוספת מבטחים נוספים (כלל, מגדל, הראל, מנורה) כ-connectors עצמאיים — ללא שינוי מחדש.
+            <strong className="text-navy">MVP: הפניקס, כלל ומגדל.</strong>{" "}
+            הארכיטקטורה מודולרית תומכת בהוספת מבטחים נוספים (הראל, מנורה ועוד) כ-connectors עצמאיים — הגדרה בלבד, ללא שינוי ארכיטקטורה.
           </p>
         </div>
       </div>
