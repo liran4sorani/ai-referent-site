@@ -1,92 +1,82 @@
 /* =============================================================
    HowItWorksSection — AI Referent
    Design: Trust Architecture | RTL Hebrew
-   3-phase roadmap + step-by-step flow
+   3-step flow + 3-phase strategic roadmap
    ============================================================= */
 
 import { useEffect, useRef, useState } from "react";
-import { Upload, MessageSquare, CheckCircle, ArrowDown } from "lucide-react";
+import { MessageSquare, CheckCircle, ArrowDown, Zap, Users, Bot } from "lucide-react";
 
 const STEPS = [
   {
     num: "01",
-    icon: <Upload size={24} />,
-    title: "העלאת מסמכי הפוליסה",
-    desc: "הסוכן מעלה את אוגדן הכיסויים, נספחים ודפי פוליסה. AI Referent מאנדקס אותם אוטומטית.",
-    phase: "שלב 1 — MVP",
+    icon: <Zap size={24} />,
+    title: "שאלה חופשית בעברית",
+    desc: "הסוכן שואל שאלה בשפה טבעית — AI Referent מזהה את הלקוח, מתחבר לפורטל המבטח בזמן אמת ושולף את הנתונים הרלוונטיים.",
+    phase: "ללא העלאת מסמכים",
   },
   {
     num: "02",
     icon: <MessageSquare size={24} />,
-    title: "שאלה בעברית בצ'אט",
-    desc: "הסוכן שואל שאלה חופשית בעברית. AI Referent מזהה את הלקוח, הפוליסה והנספח הרלוונטי.",
+    title: "AI מנתח ומסכם",
+    desc: "הסוכן מקבל תשובה ברורה עם ציטוט מדויק לנספח ולסעיף — ישירות מהפורטל, בעברית, בשניות.",
     phase: "בזמן אמת",
   },
   {
     num: "03",
     icon: <CheckCircle size={24} />,
     title: "תשובה מבוססת מקורות",
-    desc: "תשובה ברורה עם ציטוט מדויק לנספח ולסעיף. הסוכן יכול לאמת ולהעביר ללקוח בביטחון.",
+    desc: "הסוכן מאמת ומעביר ללקוח בביטחון. כל תשובה מגובה בציטוט — אפס ניחושים, אפס טעויות.",
     phase: "שניות",
   },
 ];
 
 const PHASES = [
   {
-    num: "P0",
-    title: "תשתיות — אותנטיקציה, RBAC ותשתיות מולטי-טננט",
-    desc: "מונורפו, CI/CD, FastAPI, Postgres+pgvector, מידלוור RBAC+ביקורת, רישומי Connector ו-Capability ריקים.",
+    num: "שלב 1",
+    icon: <Zap size={20} />,
+    title: "הרפרנט הוירטואלי — MVP",
+    desc: "AI שעונה על שאלות כיסוי, תביעות ופוליסה ישירות מפורטלי הפניקס, כלל ומגדל — ללא העלאת מסמכים. הסוכן שואל בעברית, מקבל תשובה מבוססת מקורות תוך שניות. כולל backoffice, RBAC ולולאת משוב לשיפור מתמיד.",
     status: "בפיתוח",
     statusColor: "bg-amber-100 text-amber-700",
+    borderHighlight: true,
+    items: [
+      "חיבור חי לפורטלי הפניקס · כלל · מגדל",
+      "צ'אט RTL עם ציטוטים מדויקים",
+      "ייבוא לקוחות CSV + מיפוי פוליסות",
+      "Backoffice + RBAC + לולאת משוב",
+      "פיילוט סגור עם ~5 סוכנים",
+    ],
   },
   {
-    num: "P1",
-    title: "אינדקסייה + RAG עם ציטוטים",
-    desc: "העלאת מסמכים → פירסור PDF עברי → חתיכה → הטמעה → pgvector. שליפת נספחים עם שמירת ספאני ציטוט מדויקים.",
-    status: "עתידי",
-    statusColor: "bg-slate-100 text-slate-600",
+    num: "שלב 2",
+    icon: <Users size={20} />,
+    title: "הרפרנט המלא — מסמכים ופורטלים נוספים",
+    desc: "הרחבת היכולת לטיפול ישיר במסמכי פוליסה (PDF), הוספת מבטחים נוספים, וניהול שיחות מורכבות עם לקוחות — הסוכן מקבל סיכום בלבד בנקודות החלטה קריטיות.",
+    status: "מתוכנן",
+    statusColor: "bg-blue-100 text-blue-700",
+    borderHighlight: false,
+    items: [
+      "קריאת מסמכי PDF ישירות ללא העלאה ידנית",
+      "חיבור למבטחים נוספים",
+      "ניהול שיחות לקוח ישירות על ידי ה-AI",
+      "התראות חכמות לסוכן בנקודות החלטה בלבד",
+    ],
   },
   {
-    num: "P2",
-    title: "צ'אט + יכולת כיסוי ראשונה",
-    desc: "ממשק צ'אט RTL; ייבוא רשימת לקוחות CSV; קונקטורי OTP להפניקס, כלל ומגדל; תשובות מבוססות עם ציטוטים.",
-    status: "עתידי",
-    statusColor: "bg-slate-100 text-slate-600",
-  },
-  {
-    num: "P3",
-    title: "לולאת משוב חובה",
-    desc: "דירוג / תיקון / הערה על כל תשובה; שמירת עקבות מלאה (trace); בניית קורפוס אימון.",
-    status: "עתידי",
-    statusColor: "bg-slate-100 text-slate-600",
-  },
-  {
-    num: "P4",
-    title: "מוכנות תביעה חיה",
-    desc: "סטאטוס תביעה, היסטוריית תביעות ותנאי החזר שלופים חי מפורטל המבטח בסשן OTP. דגרדה עדינה רק כששדה חסר בפורטל.",
-    status: "עתידי",
-    statusColor: "bg-slate-100 text-slate-600",
-  },
-  {
-    num: "P5",
-    title: "Backoffice והרשאות",
-    desc: "פאנל ניהול: טננטים, משתמשים/תפקידים, קונפיגורציית מבטחים, הגדרות מודל, סקירת משוב וייצוא קורפוס.",
-    status: "עתידי",
-    statusColor: "bg-slate-100 text-slate-600",
-  },
-  {
-    num: "P6",
-    title: "דף נחיתה + פיילוט",
-    desc: "דף שיווקי + הרשמה לפיילוט פעיל ב-Backoffice. פיילוט סגור: כ~5 סוכנים, נתונים אמיתיים עם הסכמת לקוחות.",
-    status: "עתידי",
-    statusColor: "bg-slate-100 text-slate-600",
-  },
-  {
-    num: "P7",
-    title: "הקשחה ועמידה רגולטורית",
-    desc: "הצפנה, RLS, מדיניות שמירה, בדיקת חדירה, אישור עמידה לפני נתונים חיים בקנה גדול.",
-    status: "עתידי",
-    statusColor: "bg-slate-100 text-slate-600",
+    num: "שלב 3",
+    icon: <Bot size={20} />,
+    title: "הסוכן האוטונומי — פינוי עומס מלא",
+    desc: "ה-AI מנהל את כל השגרה היומיומית — שאלות כיסוי, עדכוני תביעות, חידושים — ומדווח לסוכן רק על הזדמנויות מכירה חדשות ואירועים קריטיים. הסוכן מתפנה לגיוס לקוחות חדשים.",
+    status: "חזון",
+    statusColor: "bg-purple-100 text-purple-700",
+    borderHighlight: false,
+    items: [
+      "ניהול אוטונומי של שגרת שירות לקוחות",
+      "התראה לסוכן רק על: מכירה פוטנציאלית, בעיה קריטית, חידוש",
+      "מדדי ביצוע ותובנות עסקיות בזמן אמת",
+      "פינוי מלא לסוכן — פוקוס על הכנסה חדשה",
+    ],
   },
 ];
 
@@ -130,7 +120,7 @@ export default function HowItWorksSection() {
             className="text-lg text-slate-500 max-w-2xl mx-auto"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            תהליך פשוט שמחליף שעות של חיפוש בשניות של שיחה.
+            ללא העלאת מסמכים, ללא כניסה לפורטל — AI Referent מתחבר ישירות ועונה בשניות.
           </p>
         </div>
 
@@ -150,7 +140,6 @@ export default function HowItWorksSection() {
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              {/* Step number */}
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-black text-lg shadow-lg"
                 style={{
@@ -160,8 +149,6 @@ export default function HowItWorksSection() {
               >
                 {step.num}
               </div>
-
-              {/* Phase tag */}
               <span
                 className="inline-block text-xs px-2 py-0.5 rounded-full mb-3 font-medium"
                 style={{
@@ -172,7 +159,6 @@ export default function HowItWorksSection() {
               >
                 {step.phase}
               </span>
-
               <h3
                 className="text-lg font-bold text-navy mb-2"
                 style={{ fontFamily: "Heebo, sans-serif" }}
@@ -195,13 +181,13 @@ export default function HowItWorksSection() {
             className="text-2xl font-black text-navy mb-2"
             style={{ fontFamily: "Heebo, sans-serif" }}
           >
-            מפת הדרכים — P0 עד Pilot
+            מפת הדרכים — 3 שלבים אסטרטגיים
           </h3>
           <p
             className="text-slate-500"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            8 שלבים מסודרים — תשתיות ואבטחה קודמות לפיצ'רים, כל שלב בניתן לדמו
+            מ-MVP שמחליף את הרפרנט האנושי — עד לסוכן אוטונומי שמפנה את הסוכן לגיוס לקוחות חדשים
           </p>
         </div>
 
@@ -213,35 +199,38 @@ export default function HowItWorksSection() {
                   phasesInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
                 }`}
                 style={{
-                  borderColor: i === 0 ? "oklch(0.75 0.15 75 / 0.5)" : "oklch(0.9 0.005 265)",
-                  transitionDelay: `${i * 100}ms`,
-                  borderWidth: i === 0 ? "2px" : "1px",
+                  borderColor: phase.borderHighlight ? "oklch(0.75 0.15 75 / 0.5)" : "oklch(0.9 0.005 265)",
+                  transitionDelay: `${i * 120}ms`,
+                  borderWidth: phase.borderHighlight ? "2px" : "1px",
                 }}
               >
-                <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
                   <div className="flex items-center gap-4">
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center font-black text-white text-xs flex-shrink-0"
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0"
                       style={{
-                        background: i === 0 ? "oklch(0.24 0.08 265)" : i < 3 ? "oklch(0.65 0.12 75)" : "oklch(0.7 0.01 265)",
-                        fontFamily: "Heebo, sans-serif",
+                        background: i === 0
+                          ? "oklch(0.24 0.08 265)"
+                          : i === 1
+                          ? "oklch(0.45 0.12 265)"
+                          : "oklch(0.55 0.18 290)",
                       }}
                     >
-                      {phase.num}
+                      {phase.icon}
                     </div>
                     <div>
+                      <div
+                        className="text-xs font-semibold mb-0.5"
+                        style={{ color: "oklch(0.75 0.15 75)", fontFamily: "Heebo, sans-serif" }}
+                      >
+                        {phase.num}
+                      </div>
                       <h4
-                        className="font-bold text-navy"
+                        className="font-bold text-navy text-lg"
                         style={{ fontFamily: "Heebo, sans-serif" }}
                       >
                         {phase.title}
                       </h4>
-                      <p
-                        className="text-slate-500 text-sm"
-                        style={{ fontFamily: "Assistant, sans-serif" }}
-                      >
-                        {phase.desc}
-                      </p>
                     </div>
                   </div>
                   <span
@@ -251,6 +240,25 @@ export default function HowItWorksSection() {
                     {phase.status}
                   </span>
                 </div>
+
+                <p
+                  className="text-slate-500 text-sm leading-relaxed mb-4"
+                  style={{ fontFamily: "Assistant, sans-serif" }}
+                >
+                  {phase.desc}
+                </p>
+
+                <ul className="space-y-1.5">
+                  {phase.items.map((item, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-slate-600" style={{ fontFamily: "Assistant, sans-serif" }}>
+                      <span
+                        className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: i === 0 ? "oklch(0.75 0.15 75)" : i === 1 ? "oklch(0.45 0.12 265)" : "oklch(0.55 0.18 290)" }}
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
               {i < PHASES.length - 1 && (
                 <div className="flex justify-center my-2 text-slate-300">
