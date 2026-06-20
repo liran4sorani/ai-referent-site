@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/fUsxeBSLjVwJIIYL.png"
-              alt="AI Referent"
+              alt="Verra"
               className="h-8 w-8 object-contain"
             />
             <div>
@@ -28,7 +28,7 @@ export default function Footer() {
                 className="text-white font-bold text-sm"
                 style={{ fontFamily: "Heebo, sans-serif" }}
               >
-                AI Referent
+                Verra
               </div>
               <div
                 className="text-white/40 text-xs"
@@ -42,7 +42,7 @@ export default function Footer() {
           {/* Links */}
           <nav className="flex items-center gap-6 flex-wrap justify-center">
             {[
-              { label: "מה זה AI Referent?", href: "#about" },
+              { label: "מה זה Verra?", href: "#about" },
               { label: "יכולות", href: "#features" },
               { label: "מקרי שימוש", href: "#usecases" },
               { label: "צור קשר", href: "#contact" },
@@ -67,7 +67,7 @@ export default function Footer() {
             className="text-white/30 text-xs"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            © {year} AI Referent. כל הזכויות שמורות.
+            © {year} Verra · askverra.ai. כל הזכויות שמורות.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export default function Footer() {
             className="text-white/25 text-xs max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            AI Referent הוא כלי עזר לסוכני ביטוח בלבד. התשובות מבוססות על מסמכי הפוליסה שהועלו ואינן מהוות ייעוץ משפטי או ביטוחי.
+            Verra היא כלי עזר לסוכני ביטוח בלבד. התשובות מבוססות על מסמכי הפוליסה שהועלו ואינן מהוות ייעוץ משפטי או ביטוחי.
             הסוכן אחראי לאמת את המידע לפני מתן ייעוץ ללקוח.
           </p>
         </div>

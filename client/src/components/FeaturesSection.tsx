@@ -105,7 +105,7 @@ export default function FeaturesSection() {
             className="text-lg text-slate-500 max-w-2xl mx-auto"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            AI Referent MVP מתחיל עם יכולות הליבה ומתרחב בהדרגה. כל יכולת נבנית על בסיס משוב אמיתי מסוכנים.
+            Verra MVP מתחילה עם יכולות הליבה ומתרחבת בהדרגה. כל יכולת נבנית על בסיס משוב אמיתי מסוכנים.
           </p>
         </div>
 

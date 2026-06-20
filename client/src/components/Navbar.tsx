@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "מה זה AI Referent?", href: "#about" },
+  { label: "מה זה Verra?", href: "#about" },
   { label: "יכולות", href: "#features" },
   { label: "מקרי שימוש", href: "#usecases" },
   { label: "איך זה עובד", href: "#how-it-works" },
@@ -50,7 +50,7 @@ export default function Navbar() {
           >
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/fUsxeBSLjVwJIIYL.png"
-              alt="AI Referent Logo"
+              alt="Verra Logo"
               className="h-10 w-10 object-contain flex-shrink-0"
               style={{ minWidth: "2.5rem" }}
             />
@@ -61,7 +61,7 @@ export default function Navbar() {
                 }`}
                 style={{ fontFamily: "Heebo, sans-serif" }}
               >
-                AI Referent
+                Verra
               </span>
               <span
                 className={`text-xs font-light transition-colors ${

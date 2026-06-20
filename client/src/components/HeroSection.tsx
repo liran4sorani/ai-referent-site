@@ -69,7 +69,7 @@ export default function HeroSection() {
               className="text-lg md:text-xl text-white/75 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0 animate-fade-in-up animate-delay-200"
               style={{ fontFamily: "Assistant, sans-serif", fontWeight: 400 }}
             >
-              AI Referent הוא עוזר AI חכם לסוכני ביטוח — עונה על שאלות כיסוי,
+              Verra היא עוזרת AI חכמה לסוכני ביטוח — עונה על שאלות כיסוי,
               מאתר פרטי פוליסה ומסייע בתביעות. <strong className="text-white">בעברית, בזמן אמת, ללא המתנה.</strong>
             </p>
 
@@ -111,7 +111,7 @@ export default function HeroSection() {
               >
                 <img
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/FHIRgYoQFZtdfnSm.png"
-                  alt="AI Referent — ממשק שיחה לסוכני ביטוח"
+                  alt="Verra — ממשק שיחה לסוכני ביטוח"
                   className="w-full h-auto"
                 />
               </div>
@@ -126,7 +126,7 @@ export default function HeroSection() {
                     <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/fUsxeBSLjVwJIIYL.png" alt="AI" className="w-5 h-5 object-contain" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-navy" style={{ fontFamily: "Heebo, sans-serif" }}>AI Referent</div>
+                    <div className="text-xs font-bold text-navy" style={{ fontFamily: "Heebo, sans-serif" }}>Verra</div>
                     <div className="flex items-center gap-1">
                       <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                       <span className="text-xs text-slate-400">פעיל</span>

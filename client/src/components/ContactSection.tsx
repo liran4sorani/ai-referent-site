@@ -56,7 +56,7 @@ export default function ContactSection() {
             >
               היו מהראשונים לנסות
               <br />
-              <span className="text-gradient">AI Referent</span>
+              <span className="text-gradient">Verra</span>
             </h2>
 
             <p
@@ -72,7 +72,7 @@ export default function ContactSection() {
               {[
                 "גישה מוקדמת לפני השקה רשמית",
                 "השפעה ישירה על פיתוח המוצר",
-                "תמיכה אישית מצוות AI Referent",
+                "תמיכה אישית מצוות Verra",
                 "ללא עלות בשלב הפיילוט",
               ].map((benefit, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -90,7 +90,7 @@ export default function ContactSection() {
             {/* Contact info */}
             <div className="space-y-3">
               <a
-                href="mailto:pilot@ai-referent.co.il"
+                href="mailto:pilot@askverra.ai"
                 className="flex items-center gap-3 text-white/60 hover:text-white transition-colors group"
               >
                 <div
@@ -99,7 +99,7 @@ export default function ContactSection() {
                 >
                   <Mail size={16} />
                 </div>
-                <span style={{ fontFamily: "Assistant, sans-serif" }}>pilot@ai-referent.co.il</span>
+                <span style={{ fontFamily: "Assistant, sans-serif" }}>pilot@askverra.ai</span>
               </a>
               <a
                 href="tel:+972-50-0000000"

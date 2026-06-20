@@ -12,7 +12,7 @@ const STEPS = [
     num: "01",
     icon: <Zap size={24} />,
     title: "שאלה חופשית בעברית",
-    desc: "הסוכן שואל שאלה בשפה טבעית — AI Referent מזהה את הלקוח, מתחבר לפורטל המבטח בזמן אמת ושולף את הנתונים הרלוונטיים.",
+    desc: "הסוכן שואל שאלה בשפה טבעית — Verra מזהה את הלקוח, מתחברת לפורטל המבטח בזמן אמת ושולפת את הנתונים הרלוונטיים.",
     phase: "ללא העלאת מסמכים",
   },
   {
@@ -120,7 +120,7 @@ export default function HowItWorksSection() {
             className="text-lg text-slate-500 max-w-2xl mx-auto"
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
-            ללא העלאת מסמכים, ללא כניסה לפורטל — AI Referent מתחבר ישירות ועונה בשניות.
+            ללא העלאת מסמכים, ללא כניסה לפורטל — Verra מתחברת ישירות ועונה בשניות.
           </p>
         </div>
 

@@ -12,7 +12,7 @@ const USE_CASES = [
     id: "coverage",
     label: "בדיקת כיסוי",
     title: "האם הטיפול מכוסה?",
-    desc: "הסוכן שואל על כיסוי טיפול ספציפי — AI Referent מאתר את הנספח הרלוונטי ועונה עם ציטוט מדויק.",
+    desc: "הסוכן שואל על כיסוי טיפול ספציפי — Verra מאתרת את הנספח הרלוונטי ועונה עם ציטוט מדויק.",
     chat: [
       { role: "user", text: "האם פיזיותרפיה מכוסה ללקוח ישראל ישראלי תחת פוליסת הבריאות שלו?" },
       {
@@ -38,7 +38,7 @@ const USE_CASES = [
     id: "docs",
     label: "מסמכים נדרשים",
     title: "אילו מסמכים נדרשים?",
-    desc: "AI Referent מפרט את כל המסמכים הנדרשים לתביעה ספציפית — כדי שהלקוח יגיע מוכן.",
+    desc: "Verra מפרטת את כל המסמכים הנדרשים לתביעה ספציפית — כדי שהלקוח יגיע מוכן.",
     chat: [
       { role: "user", text: "אילו מסמכים צריך ללקוח להגיש לתביעת השבת הוצאות ניתוח?" },
       {
@@ -110,7 +110,7 @@ export default function UseCasesSection() {
             className="text-3xl md:text-4xl font-black text-navy mb-4"
             style={{ fontFamily: "Heebo, sans-serif" }}
           >
-            ראו את AI Referent בפעולה
+            ראו את Verra בפעולה
           </h2>
           <p
             className="text-lg text-slate-500 max-w-2xl mx-auto"
@@ -179,7 +179,7 @@ export default function UseCasesSection() {
             >
               <img
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663681922588/fUsxeBSLjVwJIIYL.png"
-                alt="AI Referent"
+                alt="Verra"
                 className="w-8 h-8 object-contain"
               />
               <div>
@@ -187,7 +187,7 @@ export default function UseCasesSection() {
                   className="text-white font-bold text-sm"
                   style={{ fontFamily: "Heebo, sans-serif" }}
                 >
-                  AI Referent
+                  Verra
                 </div>
                 <div className="flex items-center gap-1">
                   <div className="w-1.5 h-1.5 rounded-full bg-green-400" />

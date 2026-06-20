@@ -61,7 +61,7 @@ export default function AboutSection() {
             style={{ fontFamily: "Assistant, sans-serif" }}
           >
             כשלקוח שואל "האם הפיזיותרפיה שלי מכוסה?", הסוכן צריך לעבור בין מערכות מרובות, להתחבר
-            לפורטלי הפניקס, כלל ומגדל ולקרוא אוגדנים ארוכים — לפני שיכול לענות. AI Referent מחסל את כל זה.
+            לפורטלי הפניקס, כלל ומגדל ולקרוא אוגדנים ארוכים — לפני שיכול לענות. Verra מחסלת את כל זה.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function AboutSection() {
                 className="text-xl font-bold text-red-700"
                 style={{ fontFamily: "Heebo, sans-serif" }}
               >
-                לפני AI Referent
+                לפני Verra
               </h3>
             </div>
             <ul className="space-y-4">
@@ -121,7 +121,7 @@ export default function AboutSection() {
                 className="text-xl font-bold text-navy"
                 style={{ fontFamily: "Heebo, sans-serif" }}
               >
-                עם AI Referent
+                עם Verra
               </h3>
             </div>
             <ul className="space-y-4">
@@ -156,7 +156,7 @@ export default function AboutSection() {
             "עוזר AI חכם לסוכני ביטוח — עונה על שאלות כיסוי ותביעות מפורטלי הפניקס, כלל ומגדל — בעברית, בזמן אמת, עם ציטוטים מדויקים לנספח ולסעיף."
           </blockquote>
           <p className="mt-4 text-slate-500 text-sm" style={{ fontFamily: "Assistant, sans-serif" }}>
-            — חזון AI Referent
+            — חזון Verra
           </p>
         </div>
       </div>
