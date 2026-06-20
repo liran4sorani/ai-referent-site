@@ -6,11 +6,13 @@
 
 import { useState } from "react";
 import { Send, CheckCircle2, Mail, Phone, MessageCircle } from "lucide-react";
+import { trpc } from "@/lib/trpc";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactSection() {
   const [formState, setFormState] = useState<FormState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -20,6 +22,14 @@ export default function ContactSection() {
     message: "",
   });
 
+  const submitContact = trpc.contact.submit.useMutation({
+    onSuccess: () => setFormState("success"),
+    onError: (err) => {
+      setErrorMsg(err.message || "שגיאה בשליחה. נסה שוב.");
+      setFormState("error");
+    },
+  });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -27,9 +37,13 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("submitting");
-    // Simulate form submission (replace with actual endpoint)
-    await new Promise((res) => setTimeout(res, 1500));
-    setFormState("success");
+    setErrorMsg("");
+    submitContact.mutate({
+      name: form.name,
+      email: form.email,
+      role: form.role || undefined,
+      message: form.message || undefined,
+    });
   };
 
   return (
@@ -328,6 +342,15 @@ export default function ContactSection() {
                       </>
                     )}
                   </button>
+
+                  {formState === "error" && (
+                    <p
+                      className="text-sm text-red-600 text-center font-medium"
+                      style={{ fontFamily: "Assistant, sans-serif" }}
+                    >
+                      {errorMsg || "שגיאה בשליחה. נסה שוב."}
+                    </p>
+                  )}
 
                   <p
                     className="text-xs text-slate-400 text-center"
