@@ -67,7 +67,7 @@ export const appRouter = router({
 
         const { error } = await resend.emails.send({
           from: "Verra Pilot <onboarding@resend.dev>",
-          to: ["info@askverra.com"],
+          to: ["info@askverra.ai"],
           replyTo: input.email,
           subject: `בקשת פיילוט חדשה מ-${input.name}`,
           html,

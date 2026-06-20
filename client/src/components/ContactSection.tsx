@@ -104,7 +104,7 @@ export default function ContactSection() {
             {/* Contact info */}
             <div className="space-y-3">
               <a
-                href="mailto:info@askverra.com"
+                href="mailto:info@askverra.ai"
                 className="flex items-center gap-3 text-white/60 hover:text-white transition-colors group"
               >
                 <div
@@ -113,7 +113,7 @@ export default function ContactSection() {
                 >
                   <Mail size={16} />
                 </div>
-                <span style={{ fontFamily: "Assistant, sans-serif" }}>info@askverra.com</span>
+                <span style={{ fontFamily: "Assistant, sans-serif" }}>info@askverra.ai</span>
               </a>
               <a
                 href="tel:+972-50-0000000"

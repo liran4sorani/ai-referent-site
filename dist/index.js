@@ -673,7 +673,7 @@ var appRouter = router({
         `;
       const { error } = await resend.emails.send({
         from: "Verra Pilot <onboarding@resend.dev>",
-        to: ["info@askverra.com"],
+        to: ["info@askverra.ai"],
         replyTo: input.email,
         subject: `\u05D1\u05E7\u05E9\u05EA \u05E4\u05D9\u05D9\u05DC\u05D5\u05D8 \u05D7\u05D3\u05E9\u05D4 \u05DE-${input.name}`,
         html
