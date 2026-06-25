@@ -99,6 +99,31 @@ export default function HeroSection() {
                 למדו עוד
               </button>
             </div>
+
+            {/* Live app trust badge */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 mt-5 animate-fade-in-up animate-delay-400">
+              <a
+                href="https://app.askverra.ai/app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 group"
+                style={{ textDecoration: "none" }}
+              >
+                <span
+                  className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all group-hover:scale-105"
+                  style={{
+                    background: "rgba(34,197,94,0.15)",
+                    border: "1px solid rgba(34,197,94,0.4)",
+                    color: "oklch(0.8 0.15 145)",
+                    fontFamily: "Heebo, sans-serif",
+                  }}
+                >
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block" />
+                  האפליקציה כבר חיה — לחצו לצפייה
+                  <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                </span>
+              </a>
+            </div>
           </div>
 
           {/* Hero image / Chat demo (left in RTL) */}
